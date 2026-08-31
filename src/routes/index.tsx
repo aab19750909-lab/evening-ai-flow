@@ -59,7 +59,7 @@ function ConsultationButton({
 
 function InterfacePreview() {
   return (
-    <div className="relative mx-auto w-full max-w-[590px] animate-hero-rise lg:mx-0" style={{ animationDelay: "160ms" }}>
+    <div className="animation-delay-160 relative mx-auto w-full max-w-[590px] animate-hero-rise lg:mx-0">
       <div className="absolute -inset-5 rounded-[2rem] border border-surface-strong bg-surface/40" aria-hidden="true" />
       <div className="relative overflow-hidden rounded-2xl border border-surface-strong bg-surface-strong p-3 shadow-hero backdrop-blur-xl sm:p-4">
         <div className="flex items-center justify-between border-b border-border px-2 pb-3">
@@ -83,7 +83,7 @@ function InterfacePreview() {
             </div>
             <div className="rounded-lg border border-border bg-card p-3">
               <div className="mb-3 flex items-center justify-between"><p className="text-[9px] font-bold">Темп разработки</p><span className="text-[8px] text-muted-foreground">7 дней</span></div>
-              <div className="flex h-20 items-end gap-1.5 sm:h-28">{[34,48,40,67,55,84,72,94,78,100].map((height, index) => <div key={index} className="flex-1 rounded-t-sm bg-primary/15" style={{ height: `${height}%` }}><div className="h-2/3 w-full rounded-t-sm bg-primary/55" /></div>)}</div>
+              <div className="flex h-20 items-end gap-1.5 sm:h-28">{["h-1/3", "h-1/2", "h-2/5", "h-2/3", "h-3/5", "h-4/5", "h-3/4", "h-11/12", "h-4/5", "h-full"].map((heightClass, index) => <div key={index} className={`flex-1 rounded-t-sm bg-primary/15 ${heightClass}`}><div className="h-2/3 w-full rounded-t-sm bg-primary/55" /></div>)}</div>
             </div>
             <div className="hidden items-center gap-2 rounded-lg border border-border bg-card p-2 sm:flex"><span className="flex size-6 items-center justify-center rounded-full bg-primary/10"><Check className="size-3 text-primary" /></span><div><p className="text-[8px] font-bold">Прототип готов</p><p className="text-[7px] text-muted-foreground">Все ключевые сценарии собраны</p></div></div>
           </div>
@@ -113,8 +113,8 @@ function Index() {
               Создаю AI-продукты через вайбкодинг: быстро собираю MVP, лендинги и веб-приложения с помощью современных AI-инструментов.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <ConsultationButton href="https://t.me/" icon={<Send className="size-4" aria-hidden="true" />}>Записаться на консультацию · Telegram</ConsultationButton>
-              <ConsultationButton href="mailto:?subject=Бесплатная консультация" variant="secondary" icon={<Mail className="size-4" aria-hidden="true" />}>Записаться на консультацию · e-mail</ConsultationButton>
+              <ConsultationButton href="https://t.me/" icon={<Send className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (Telegram)</ConsultationButton>
+              <ConsultationButton href="mailto:?subject=Бесплатная консультация" variant="secondary" icon={<Mail className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (e-mail)</ConsultationButton>
             </div>
             <div className="mt-7 flex items-center gap-2 text-xs font-medium text-muted-foreground"><span className="flex size-5 items-center justify-center rounded-full bg-primary/10"><Check className="size-3 text-primary" /></span>Первая консультация — бесплатно <ArrowUpRight className="size-3.5" /></div>
           </div>
