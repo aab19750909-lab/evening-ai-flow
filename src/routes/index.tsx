@@ -337,6 +337,7 @@ function Index() {
         </div>
       </section>
       <ProjectsSection />
+      <ServicesSection />
     </main>
   );
 }
