@@ -2,6 +2,30 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Check, LoaderCircle, Mail, Send, Sparkles } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
+const PROJECTS = [
+  {
+    id: "studyflow",
+    title: "StudyFlow",
+    description: "AI-платформа для персонализированного обучения: адаптивные треки, умные карточки и аналитика прогресса.",
+    tags: ["React", "OpenAI", "Supabase", "Tailwind"],
+    preview: "education",
+  },
+  {
+    id: "neuroanalyst",
+    title: "НейроАналитик",
+    description: "AI-сервис для анализа данных: автоматическая визуализация, прогнозы и инсайты в естественном языке.",
+    tags: ["Next.js", "Python", "Recharts", "PostgreSQL"],
+    preview: "analytics",
+  },
+  {
+    id: "launchpro",
+    title: "LaunchPro",
+    description: "Лендинг для продукта: конверсионная структура, анимации и интеграция форм захвата за один вечер.",
+    tags: ["Astro", "Framer Motion", "TypeScript", "Figma"],
+    preview: "landing",
+  },
+] as const;
+
 // No head() here: the home route inherits title/description/og/twitter from
 // __root.tsx, and ships no og:image so serve-time hosting can inject the
 // project's social preview (explicit og:image or latest screenshot).
@@ -95,6 +119,131 @@ function InterfacePreview() {
   );
 }
 
+function ProjectPreview({ type }: { type: "education" | "analytics" | "landing" }) {
+  if (type === "analytics") {
+    return (
+      <div className="flex h-full flex-col gap-3 p-4" aria-hidden="true">
+        <div className="flex items-center justify-between">
+          <div className="h-2.5 w-16 rounded-full bg-foreground/10" />
+          <div className="h-5 w-5 rounded-full bg-primary/15" />
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="rounded-lg bg-surface-strong p-2 shadow-sm">
+            <div className="h-1.5 w-8 rounded-full bg-muted" />
+            <div className="mt-2 h-4 w-10 rounded-md bg-foreground/10" />
+          </div>
+          <div className="rounded-lg bg-surface-strong p-2 shadow-sm">
+            <div className="h-1.5 w-8 rounded-full bg-muted" />
+            <div className="mt-2 h-4 w-10 rounded-md bg-primary/25" />
+          </div>
+        </div>
+        <div className="flex flex-1 items-end gap-1.5 rounded-lg bg-surface-strong p-3 shadow-sm">
+          {[40, 65, 45, 80, 55, 90, 70, 85].map((h, i) => (
+            <div key={i} className="flex-1 rounded-t-sm bg-primary/20" style={{ height: `${h}%` }}>
+              <div className="h-2/3 w-full rounded-t-sm bg-primary/60" />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "landing") {
+    return (
+      <div className="flex h-full flex-col gap-3 p-4" aria-hidden="true">
+        <div className="flex items-center justify-between">
+          <div className="h-2.5 w-12 rounded-full bg-foreground/10" />
+          <div className="flex gap-1">
+            <div className="h-2 w-6 rounded-full bg-muted" />
+            <div className="h-2 w-6 rounded-full bg-muted" />
+          </div>
+        </div>
+        <div className="grid flex-1 grid-cols-[1fr_0.9fr] gap-2">
+          <div className="flex flex-col justify-center gap-2 rounded-lg bg-surface-strong p-3 shadow-sm">
+            <div className="h-3 w-20 rounded-md bg-foreground/10" />
+            <div className="h-2 w-full rounded-full bg-muted" />
+            <div className="h-2 w-4/5 rounded-full bg-muted" />
+            <div className="mt-1 h-5 w-14 rounded-md bg-primary/25" />
+          </div>
+          <div className="rounded-lg bg-primary/10 shadow-sm" />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-full items-center justify-center gap-2 p-4" aria-hidden="true">
+      <div className="flex h-full w-1/3 flex-col gap-2 rounded-xl bg-surface-strong p-2 shadow-sm">
+        <div className="h-2 w-full rounded-full bg-muted" />
+        <div className="flex-1 rounded-lg bg-primary/10" />
+        <div className="h-6 rounded-md bg-foreground/10" />
+      </div>
+      <div className="flex h-full w-1/3 flex-col gap-2 rounded-xl bg-surface-strong p-2 shadow-sm">
+        <div className="h-2 w-full rounded-full bg-muted" />
+        <div className="flex-1 rounded-lg bg-violet-soft/25" />
+        <div className="h-6 rounded-md bg-foreground/10" />
+      </div>
+      <div className="flex h-full w-1/3 flex-col gap-2 rounded-xl bg-surface-strong p-2 shadow-sm">
+        <div className="h-2 w-full rounded-full bg-muted" />
+        <div className="flex-1 rounded-lg bg-primary/10" />
+        <div className="h-6 rounded-md bg-foreground/10" />
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
+  return (
+    <article className="group flex flex-col overflow-hidden rounded-3xl border border-surface-strong bg-surface-strong shadow-hero transition duration-200 hover:-translate-y-1">
+      <div className="relative h-48 w-full bg-gradient-to-br from-accent/40 via-background to-muted/70 sm:h-52">
+        <ProjectPreview type={project.preview} />
+      </div>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <h3 className="truncate text-lg font-bold text-foreground">{project.title}</h3>
+            <p className="mt-1 text-xs font-medium text-muted-foreground">{project.preview === "education" ? "Web Application" : project.preview === "analytics" ? "AI Service" : "Landing Page"}</p>
+          </div>
+          <span className="grid size-9 shrink-0 place-items-center rounded-full border border-border bg-surface transition duration-200 group-hover:border-primary/30 group-hover:bg-primary/10">
+            <ArrowUpRight className="size-4 text-foreground transition duration-200 group-hover:text-primary" />
+          </span>
+        </div>
+        <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span key={tag} className="rounded-full border border-border bg-surface px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ProjectsSection() {
+  return (
+    <section className="px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-2 text-xs font-bold uppercase tracking-wider text-primary">Featured Projects</p>
+            <h2 className="text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">Избранные проекты</h2>
+          </div>
+          <button type="button" className="inline-flex items-center gap-2 self-start rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground transition duration-200 hover:bg-muted sm:self-auto">
+            Все проекты <ArrowUpRight className="size-4" aria-hidden="true" />
+          </button>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-background">
@@ -119,6 +268,7 @@ function Index() {
           <InterfacePreview />
         </div>
       </section>
+      <ProjectsSection />
     </main>
   );
 }
