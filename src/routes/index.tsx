@@ -26,6 +26,37 @@ const PROJECTS = [
   },
 ] as const;
 
+const SERVICES = [
+  {
+    id: "mvp",
+    title: "MVP за вечер",
+    description: "Превращаю идею в работающий прототип за одну сессию: от структуры и дизайна до деплоя и первых пользователей.",
+    result: "Готовый продукт за 1 вечер вместо недель разработки.",
+    icon: <Rocket className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "ai-automation",
+    title: "AI-автоматизация",
+    description: "Встраиваю нейросети в бизнес-процессы: генерация контента, обработка заявок, аналитика и персонализация.",
+    result: "Экономия до 20 часов ручной работы в неделю.",
+    icon: <Bot className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "ui-ux",
+    title: "UI/UX с вайбкодингом",
+    description: "Создаю чистые, продуманные интерфейсы в едином визуальном стиле, быстро адаптируя их под фидбек и метрики.",
+    result: "Интерфейс, который нравится пользователям и конвертирует.",
+    icon: <Palette className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "integrations",
+    title: "Интеграции",
+    description: "Соединяю сервисы, базы данных, платежи и мессенджеры в единый поток данных без рутины и ошибок ручного ввода.",
+    result: "Данные синхронизируются автоматически между всеми системами.",
+    icon: <Plug className="size-5" aria-hidden="true" />,
+  },
+] as const;
+
 // No head() here: the home route inherits title/description/og/twitter from
 // __root.tsx, and ships no og:image so serve-time hosting can inject the
 // project's social preview (explicit og:image or latest screenshot).
