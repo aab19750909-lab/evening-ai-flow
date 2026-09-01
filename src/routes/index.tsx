@@ -59,8 +59,7 @@ function ConsultationButton({
 
 function InterfacePreview() {
   return (
-    <div className="animation-delay-160 relative mx-auto w-full max-w-[590px] animate-hero-rise lg:mx-0">
-      <div className="absolute -inset-5 rounded-[2rem] border border-surface-strong bg-surface/40" aria-hidden="true" />
+    <div className="animation-delay-160 relative mx-auto w-full min-w-0 max-w-[590px] animate-hero-rise lg:mx-0">
       <div className="relative overflow-hidden rounded-2xl border border-surface-strong bg-surface-strong p-3 shadow-hero backdrop-blur-xl sm:p-4">
         <div className="flex items-center justify-between border-b border-border px-2 pb-3">
           <div className="flex gap-1.5" aria-hidden="true"><i className="size-2 rounded-full bg-primary/40" /><i className="size-2 rounded-full bg-violet-soft" /><i className="size-2 rounded-full bg-muted" /></div>
@@ -89,7 +88,7 @@ function InterfacePreview() {
           </div>
         </div>
       </div>
-      <div className="absolute -right-2 top-12 flex animate-soft-float items-center gap-2 rounded-xl border border-surface-strong bg-surface-strong px-3 py-2 shadow-hero backdrop-blur-xl sm:-right-8">
+      <div className="absolute right-2 top-12 flex animate-soft-float items-center gap-2 rounded-xl border border-surface-strong bg-surface-strong px-3 py-2 shadow-hero backdrop-blur-xl sm:right-3">
         <Sparkles className="size-4 text-primary" /><div><p className="text-[8px] text-muted-foreground">AI-ускорение</p><p className="text-xs font-bold">в 4.2 раза</p></div>
       </div>
     </div>
@@ -99,20 +98,19 @@ function InterfacePreview() {
 function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-background">
-      <section className="relative flex min-h-[92vh] items-center px-5 py-12 sm:px-8 sm:py-16 lg:px-12">
-        <div className="pointer-events-none absolute inset-x-[8%] top-[9%] h-[78%] rounded-[3rem] border border-surface-strong bg-surface/45 shadow-hero backdrop-blur-2xl" aria-hidden="true" />
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:gap-12">
-          <div className="animate-hero-rise">
+      <section className="flex min-h-[92vh] items-center px-3 py-4 sm:px-6 sm:py-8 lg:px-10 lg:py-10">
+        <div className="mx-auto grid w-full max-w-7xl min-w-0 items-center gap-10 overflow-hidden rounded-3xl border border-surface-strong bg-surface/45 px-4 py-8 shadow-hero backdrop-blur-2xl sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 lg:px-12 lg:py-12">
+          <div className="min-w-0 animate-hero-rise">
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-[11px] font-bold uppercase text-muted-foreground backdrop-blur-xl">
               <Sparkles className="size-3.5 text-primary" /> AI-продукты · MVP · Web
             </div>
-            <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.55rem]">
+            <h1 className="max-w-2xl break-words text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-[3.55rem]">
               Создам цифровой инструмент под Вашу задачу <span className="text-primary">за один вечер</span>
             </h1>
             <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               Создаю AI-продукты через вайбкодинг: быстро собираю MVP, лендинги и веб-приложения с помощью современных AI-инструментов.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 flex min-w-0 flex-col gap-3 xl:flex-row xl:flex-wrap">
               <ConsultationButton href="https://t.me/" icon={<Send className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (Telegram)</ConsultationButton>
               <ConsultationButton href="mailto:?subject=Бесплатная консультация" variant="secondary" icon={<Mail className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (e-mail)</ConsultationButton>
             </div>
