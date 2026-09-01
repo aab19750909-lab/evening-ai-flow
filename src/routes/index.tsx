@@ -2,6 +2,30 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Check, LoaderCircle, Mail, Send, Sparkles } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
+const PROJECTS = [
+  {
+    id: "studyflow",
+    title: "StudyFlow",
+    description: "AI-платформа для персонализированного обучения: адаптивные треки, умные карточки и аналитика прогресса.",
+    tags: ["React", "OpenAI", "Supabase", "Tailwind"],
+    preview: "education",
+  },
+  {
+    id: "neuroanalyst",
+    title: "НейроАналитик",
+    description: "AI-сервис для анализа данных: автоматическая визуализация, прогнозы и инсайты в естественном языке.",
+    tags: ["Next.js", "Python", "Recharts", "PostgreSQL"],
+    preview: "analytics",
+  },
+  {
+    id: "launchpro",
+    title: "LaunchPro",
+    description: "Лендинг для продукта: конверсионная структура, анимации и интеграция форм захвата за один вечер.",
+    tags: ["Astro", "Framer Motion", "TypeScript", "Figma"],
+    preview: "landing",
+  },
+] as const;
+
 // No head() here: the home route inherits title/description/og/twitter from
 // __root.tsx, and ships no og:image so serve-time hosting can inject the
 // project's social preview (explicit og:image or latest screenshot).
