@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Check, LoaderCircle, Mail, Send, Sparkles } from "lucide-react";
+import { ArrowUpRight, Bot, Check, LoaderCircle, Mail, Palette, Plug, Rocket, Send, Sparkles } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 const PROJECTS = [
@@ -23,6 +23,37 @@ const PROJECTS = [
     description: "Лендинг для продукта: конверсионная структура, анимации и интеграция форм захвата за один вечер.",
     tags: ["Astro", "Framer Motion", "TypeScript", "Figma"],
     preview: "landing",
+  },
+] as const;
+
+const SERVICES = [
+  {
+    id: "mvp",
+    title: "MVP за вечер",
+    description: "Превращаю идею в работающий прототип за одну сессию: от структуры и дизайна до деплоя и первых пользователей.",
+    result: "Готовый продукт за 1 вечер вместо недель разработки.",
+    icon: <Rocket className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "ai-automation",
+    title: "AI-автоматизация",
+    description: "Встраиваю нейросети в бизнес-процессы: генерация контента, обработка заявок, аналитика и персонализация.",
+    result: "Экономия до 20 часов ручной работы в неделю.",
+    icon: <Bot className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "ui-ux",
+    title: "UI/UX с вайбкодингом",
+    description: "Создаю чистые, продуманные интерфейсы в едином визуальном стиле, быстро адаптируя их под фидбек и метрики.",
+    result: "Интерфейс, который нравится пользователям и конвертирует.",
+    icon: <Palette className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "integrations",
+    title: "Интеграции",
+    description: "Соединяю сервисы, базы данных, платежи и мессенджеры в единый поток данных без рутины и ошибок ручного ввода.",
+    result: "Данные синхронизируются автоматически между всеми системами.",
+    icon: <Plug className="size-5" aria-hidden="true" />,
   },
 ] as const;
 
@@ -244,6 +275,43 @@ function ProjectsSection() {
   );
 }
 
+function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
+  return (
+    <article className="group flex flex-col rounded-3xl border border-surface-strong bg-surface-strong p-5 shadow-hero transition duration-200 hover:-translate-y-1 sm:p-6">
+      <div className="mb-5 grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary">
+        {service.icon}
+      </div>
+      <h3 className="text-lg font-bold text-foreground">{service.title}</h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+      <p className="mt-4 text-xs font-semibold text-primary">{service.result}</p>
+      <div className="mt-5 flex items-center justify-between">
+        <span className="text-xs font-semibold text-muted-foreground transition duration-200 group-hover:text-foreground">Подробнее</span>
+        <span className="grid size-8 place-items-center rounded-full border border-border bg-surface transition duration-200 group-hover:border-primary/30 group-hover:bg-primary/10">
+          <ArrowUpRight className="size-4 text-foreground transition duration-200 group-hover:text-primary" aria-hidden="true" />
+        </span>
+      </div>
+    </article>
+  );
+}
+
+function ServicesSection() {
+  return (
+    <section className="px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="mb-10">
+          <p className="mb-2 text-xs font-bold uppercase tracking-wider text-primary">What I Do</p>
+          <h2 className="text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">Что я делаю</h2>
+        </div>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {SERVICES.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-background">
@@ -269,6 +337,7 @@ function Index() {
         </div>
       </section>
       <ProjectsSection />
+      <ServicesSection />
     </main>
   );
 }
