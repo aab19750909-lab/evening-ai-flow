@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowUpRight, Bot, Check, LoaderCircle, Mail, Palette, Plug, Rocket, Send, Sparkles } from "lucide-react";
+import { ArrowUpRight, Bot, Check, LoaderCircle, Mail, Palette, Plug, RefreshCw, Rocket, Search, Send, Sparkles } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 const PROJECTS = [
