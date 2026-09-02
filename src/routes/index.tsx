@@ -364,7 +364,7 @@ function ProcessSection() {
                   <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary">
                     {step.icon}
                   </div>
-                  <span className="text-2xl font-black text-primary/20 transition duration-200 group-hover:text-primary/40">
+                  <span className="text-2xl font-black text-primary/60 transition duration-200 group-hover:text-primary/80">
                     {step.number}
                   </span>
                 </div>
