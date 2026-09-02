@@ -354,7 +354,7 @@ function ProcessSection() {
         <div className="relative">
           {/* desktop connecting line */}
           <div className="absolute left-0 right-0 top-[52px] hidden h-1 rounded-full bg-gradient-to-r from-primary/20 via-primary/70 to-primary/20 lg:block" aria-hidden="true" />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
             {PROCESS_STEPS.map((step, index) => (
               <article
                 key={step.id}
