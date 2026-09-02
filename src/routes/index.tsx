@@ -389,8 +389,8 @@ function ProcessSection() {
 function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-background">
-      <section className="flex min-h-[92vh] items-center px-3 py-4 sm:px-6 sm:py-8 lg:px-10 lg:py-10">
-        <div className="mx-auto grid w-full max-w-7xl min-w-0 items-center gap-10 overflow-hidden rounded-3xl border border-surface-strong bg-surface/45 px-4 py-8 shadow-hero backdrop-blur-2xl sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 lg:px-12 lg:py-12">
+      <section className="flex min-h-[85vh] items-center px-3 py-3 sm:min-h-[92vh] sm:px-6 sm:py-8 lg:px-10 lg:py-10">
+        <div className="mx-auto grid w-full max-w-7xl min-w-0 items-center gap-5 overflow-hidden rounded-3xl border border-surface-strong bg-surface/45 px-4 py-5 shadow-hero backdrop-blur-2xl sm:gap-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:gap-10 lg:px-12 lg:py-12">
           <div className="min-w-0 animate-hero-rise">
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-[11px] font-bold uppercase text-muted-foreground backdrop-blur-xl">
               <Sparkles className="size-3.5 text-primary" /> AI-продукты · MVP · Web
