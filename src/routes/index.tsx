@@ -312,6 +312,78 @@ function ServicesSection() {
   );
 }
 
+const PROCESS_STEPS = [
+  {
+    id: "discover",
+    number: "01",
+    title: "Погружаюсь в задачу",
+    description: "Изучаю цели, аудиторию и ограничения, чтобы найти самое эффективное решение.",
+    icon: <Search className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "create",
+    number: "02",
+    title: "Создаю с ИИ",
+    description: "Собираю прототип, интерфейс и логику с помощью современных AI-инструментов.",
+    icon: <Sparkles className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "improve",
+    number: "03",
+    title: "Тестирую и улучшаю",
+    description: "Проверяю работу продукта, собираю фидбек и довожу детали до идеала.",
+    icon: <RefreshCw className="size-5" aria-hidden="true" />,
+  },
+  {
+    id: "launch",
+    number: "04",
+    title: "Запускаю и масштабирую",
+    description: "Деплою продукт, подключаю аналитику и помогаю расти дальше.",
+    icon: <Rocket className="size-5" aria-hidden="true" />,
+  },
+] as const;
+
+function ProcessSection() {
+  return (
+    <section className="px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="mb-10">
+          <p className="mb-2 text-xs font-bold uppercase tracking-wider text-primary">My Process</p>
+          <h2 className="text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">Как я работаю</h2>
+        </div>
+        <div className="relative">
+          {/* desktop connecting line */}
+          <div className="absolute left-0 right-0 top-[52px] hidden h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent lg:block" aria-hidden="true" />
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {PROCESS_STEPS.map((step, index) => (
+              <article
+                key={step.id}
+                className="group relative flex flex-col rounded-3xl border border-surface-strong bg-surface-strong p-5 shadow-hero transition duration-200 hover:-translate-y-1 sm:p-6"
+              >
+                <div className="mb-5 flex items-center justify-between">
+                  <div className="grid size-11 place-items-center rounded-2xl bg-primary/10 text-primary">
+                    {step.icon}
+                  </div>
+                  <span className="text-2xl font-black text-primary/20 transition duration-200 group-hover:text-primary/40">
+                    {step.number}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                {index < PROCESS_STEPS.length - 1 && (
+                  <div className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-primary/30 lg:block" aria-hidden="true">
+                    <ArrowUpRight className="size-5 rotate-45" />
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <main className="min-h-screen overflow-hidden bg-background">
@@ -338,6 +410,7 @@ function Index() {
       </section>
       <ProjectsSection />
       <ServicesSection />
+      <ProcessSection />
     </main>
   );
 }
