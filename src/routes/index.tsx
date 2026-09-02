@@ -371,7 +371,7 @@ function ProcessSection() {
                 <h3 className="text-lg font-bold text-foreground">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                 {index < PROCESS_STEPS.length - 1 && (
-                  <div className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-primary/30 lg:block" aria-hidden="true">
+                  <div className="absolute -right-6 top-1/2 hidden -translate-y-1/2 text-primary/30 lg:block" aria-hidden="true">
                     <ArrowUpRight className="size-5 rotate-45" />
                   </div>
                 )}
