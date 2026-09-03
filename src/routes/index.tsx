@@ -254,9 +254,9 @@ function ProjectCard({ project }: { project: (typeof PROJECTS)[number] }) {
 
 function ProjectsSection() {
   return (
-    <section className="px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+    <section className="px-4 py-10 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:mb-10">
           <div>
             <p className="mb-2 text-xs font-bold uppercase tracking-wider text-primary">Featured Projects</p>
             <h2 className="text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">Избранные проекты</h2>
@@ -265,7 +265,7 @@ function ProjectsSection() {
             Все проекты <ArrowUpRight className="size-4" aria-hidden="true" />
           </button>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
@@ -296,13 +296,13 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
 
 function ServicesSection() {
   return (
-    <section className="px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+    <section className="px-4 py-10 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="mb-10">
+        <div className="mb-6 sm:mb-10">
           <p className="mb-2 text-xs font-bold uppercase tracking-wider text-primary">What I Do</p>
           <h2 className="text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">Что я делаю</h2>
         </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {SERVICES.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
@@ -345,9 +345,9 @@ const PROCESS_STEPS = [
 
 function ProcessSection() {
   return (
-    <section className="px-4 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+    <section className="px-4 py-10 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="mb-10">
+        <div className="mb-6 sm:mb-10">
           <p className="mb-2 text-xs font-bold uppercase tracking-wider text-primary">My Process</p>
           <h2 className="text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">Как я работаю</h2>
         </div>
