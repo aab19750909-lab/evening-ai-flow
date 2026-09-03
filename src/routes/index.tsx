@@ -402,8 +402,8 @@ function Index() {
               Создаю AI-продукты через вайбкодинг: быстро собираю MVP, лендинги и веб-приложения с помощью современных AI-инструментов.
             </p>
             <div className="mt-8 flex min-w-0 flex-col gap-3 xl:flex-row xl:flex-wrap">
-              <ConsultationButton href="https://t.me/" icon={<Send className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (Telegram)</ConsultationButton>
-              <ConsultationButton href="mailto:?subject=Бесплатная консультация" variant="secondary" icon={<Mail className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (e-mail)</ConsultationButton>
+              <ConsultationButton href="https://t.me/username" icon={<Send className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (Telegram)</ConsultationButton>
+              <ConsultationButton href="mailto:name@example.com?subject=Бесплатная%20консультация" variant="secondary" icon={<Mail className="size-4" aria-hidden="true" />}>Записаться на бесплатную консультацию (e-mail)</ConsultationButton>
             </div>
             <div className="mt-7 flex items-center gap-2 text-xs font-medium text-muted-foreground"><span className="flex size-5 items-center justify-center rounded-full bg-primary/10"><Check className="size-3 text-primary" /></span>Первая консультация — бесплатно <ArrowUpRight className="size-3.5" /></div>
           </div>
